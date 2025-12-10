@@ -1,0 +1,185 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+    overflow-x: hidden;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.megaMenuOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.megaMenuContent {
+    border: 30px solid #ffffff;
+    background-color: #f0f0f0;
+    width: 90%;
+    height: 90%;
+    display: flex;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+}
+
+.closeColumn {
+    width: 10%;
+    min-width: 80px;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 10px;
+    position: relative;
+    justify-content: space-between;
+}
+
+.closeBtn {
+    position: static;
+    width: auto;
+    align-self: flex-start;
+    margin-bottom: 20px;
+    background: none;
+    border: none;
+    color: #000;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+    cursor: pointer;
+    text-align: left;
+    padding: 0;
+    white-space: nowrap;
+    transition: color 0.2s ease, transform 0.1s ease;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.closeBtn:hover {
+    color: #800020;
+}
+
+.logoAndSocials {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+
+.fifaLogo {
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    margin-bottom: 20px;
+    background-image: url('https://res.cloudinary.com/drftumteo/image/upload/v1765386709/logo_vnnjrx.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.socialIcons {
+    background-image: url('https://res.cloudinary.com/drftumteo/image/upload/v1765386869/Frame_53_kjtuxx.png');
+    width: 50px;
+    height: 150px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.menuColumn {
+    flex-grow: 1;
+    flex-basis: 0;
+    flex-shrink: 1;
+    background-color: #800020;
+    border-left: 2px solid #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+    text-align: center;
+    transition: flex-grow 0.5s ease-out, background-color 0.5s ease;
+}
+
+.menuColumn:hover {
+    flex-grow: 4;
+    background-color: #990033;
+}
+
+.homeColumn {
+    background-image: linear-gradient(rgba(128, 0, 32, 0.5), rgba(128, 0, 32, 0.5)),
+        url('https://res.cloudinary.com/drftumteo/image/upload/v1765384648/ccf98bb1bc673439fbfde7b6744f3f76796b6a81_rmtgyn.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.menuLink {
+    color: #fff;
+    text-decoration: none;
+    font-size: 30px;
+    padding: 10px;
+    font-weight: 800;
+    transition: transform 0.3s ease-out, color 0.3s;
+    display: inline-block;
+}
+
+.menuColumn:hover .menuLink {
+    transform: translateY(-15px);
+    color: #ffcc00;
+}
+
+.homeSubLinks {
+    color: #fff;
+    font-size: 14px;
+    line-height: 1.8;
+    font-family: sans-serif;
+    text-transform: uppercase;
+    margin-top: 5px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.homeColumn:hover .homeSubLinks {
+    opacity: 1;
+    visibility: visible;
+}
+
+.homeSubLinks a {
+    color: #fff;
+    text-decoration: none;
+    display: inline-block;
+    transition: color 0.2s;
+}
+
+.homeSubLinks a:hover {
+    color: #ffcc00;
+}
