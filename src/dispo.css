@@ -1,198 +1,163 @@
-/* src/dispo.css */
-
+/* --- Root Variables (Minimal) --- */
 :root {
-    --primary-red: #8B1538;
-    --white: #ffffff;
-    --page-max-width: 1200px;
+  --border-radius-lg: 20px; /* Used for the diagonal radius */
+  --bg-dark: #360814; /* Dark Maroon background */
+  --text-dark: #111111;
+  --text-light: #ffffff;
 }
 
-body {
-    background-color: var(--white);
-    padding-bottom: 0;
+/* --- Global & Container Styles --- */
+
+.ticket-category-list {
+  background-color: var(--bg-dark); 
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-.dispo-page-wrapper {
-    width: 100%;
-    max-width: 1200px; 
-    margin: 0 auto;
-    background: var(--white); 
-    box-shadow: none;
-    height: 100vh;
+/* Individual Card Item */
+.ticket-card-item {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
+  padding: 10px 0; /* Vertical padding accommodates larger image */
 }
 
-.dispo-main {
-    width: 100%;
-    height: 100%; 
-    background-color: var(--primary-red);
-    color: var(--white);
-    position: relative;
-    padding: 40px; 
-    box-sizing: border-box;
-    overflow: hidden;
+/* Stadium Visual Container: BIGGER SIZE */
+.stadium-visual {
+  width: 150px; 
+  height: 90px; 
+  margin-right: 15px; 
+  border-radius: 4px;
+  overflow: hidden; 
 }
 
-.abstract-line-placeholder, .btn-back-dispo-page, .dispo-match-title, .dispo-match-date {
-    display: none;
+/* Image inside the Stadium Visual Container */
+.stadium-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+  display: block;
 }
 
-.dispo-content-wrapper {
-    display: flex;
-    padding: 0;
-    height: 100%;
-    align-items: center;
-    justify-content: space-between; 
+/* --- Content & Text Styles --- */
+
+.card-content {
+  flex-grow: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--text-light);
 }
 
-.dispo-left-panel {
-    flex: 1;
-    position: relative;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.text-info {
+  flex-basis: 40%;
+  padding-right: 15px;
 }
 
-.dispo-right-panel {
-    flex: 1.2; 
-    display: flex;
-    flex-direction: column;
-    align-items: center; 
-    justify-content: center;
-    position: relative; 
-    height: 100%;
-    padding-right: 0;
+.category-title {
+  font-size: 1.1rem; 
+  font-weight: 900; 
+  margin: 0 0 3px 0;
 }
 
-
-.stadium-map-container {
-    position: relative;
-    width: 100%;
-    max-width: 350px; 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    left: 0; 
+.description, .stadium-name {
+  font-size: 0.75rem; 
+  margin: 0;
+  color: #ccc;
+  line-height: 1.2;
 }
 
-.stadium-map-image {
-    width: 100%;
-    height: auto;
-    max-height: 350px; 
-    object-fit: contain;
-    display: block;
+/* --- Action & Price Styles --- */
+
+.action-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-basis: 60%;
+  justify-content: flex-end;
 }
 
-.stadium-btn {
-    position: absolute;
-    bottom: -50px; 
-    padding: 10px 30px;
-    border-radius: 999px;
-    border: none;
-    background-color: #4c0e1e;
-    color: var(--white);
-    font-weight: 700;
-    font-size: 1rem;
-    cursor: pointer;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5); 
-    z-index: 5;
+/* Price Styling */
+.price-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  min-width: 100px;
+  align-self: center; 
 }
 
-.ticket-categories-legend {
-    position: absolute;
-    top: 50px; 
-    right: 0; 
-    width: 0px;
-    background-color: var(--primary-red);
-    padding: 5px;
-    border-radius: 4px;
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    z-index: 6;
-    border: none;
+.price-label {
+  font-size: 0.7rem; 
+  color: #f7a81b; 
 }
 
-.category-item-btn {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 5px;
-    background: transparent;
-    border: none;
-    padding: 5px 2px;
-    cursor: pointer;
-    transition: background-color 0.2s;
+.price-value {
+  font-size: 1.0rem; 
+  font-weight: 700;
+  color: #ff5757; 
+  text-wrap: nowrap;
 }
 
-.category-item-btn:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+/* --- Button Group & Shared Button Styles --- */
+
+.button-group {
+  display: flex;
+  /* Added a small gap for separation due to unique button shapes */
+  gap: 5px; 
 }
 
-.category-color {
-    width: 12px;
-    height: 12px;
-    border-radius: 1px;
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    flex-shrink: 0;
+.action-button, .details-button {
+  border: none;
+  cursor: pointer;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  transition: background-color 0.2s, border 0.2s;
+  text-wrap: nowrap;
 }
 
-.category-name {
-    flex-grow: 1;
-    font-size: 0.8rem;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    text-align: left;
-    color: var(--white);
+/* ------------------------------------------------ */
+/* --- Action Button (VOIR / VERIFIER) - Style from .btn-tickets --- */
+/* ------------------------------------------------ */
+
+.action-button {
+  background: #ffffff;
+  color: var(--text-dark);
+  padding: 10px 28px; 
+  /* Diagonal Border Radius */
+  border-radius: 0 var(--border-radius-lg) 0 var(--border-radius-lg); 
 }
 
+.action-button.eligibility {
+  /* Using white background for eligibility check as well */
+  background: #ffffff;
+}
 
-@media (max-width: 900px) {
-    .dispo-main {
-        padding: 20px;
-        height: auto;
-    }
+/* ------------------------------------------------ */
+/* --- Details Button (PLUS DE DETAILS) - Style from .btn-place --- */
+/* ------------------------------------------------ */
 
-    .dispo-content-wrapper {
-        flex-direction: column;
-    }
+.details-button {
+  /* Dark maroon background (custom based on the original request) */
+  background: rgba(100, 20, 50, 0.8); 
+  color: var(--text-light);
+  /* Light border */
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 10px 24px; 
+  /* 6px standard Border Radius */
+  border-radius: 6px; 
+}
 
-    .dispo-left-panel, .dispo-right-panel {
-        padding: 0;
-        width: 100%;
-        height: auto;
-        background-color: transparent; 
-        flex: auto;
-    }
-    
-    .dispo-right-panel {
-        display: none;
-    }
-    
-    .dispo-left-panel {
-        align-items: flex-start;
-        justify-content: center;
-        padding-top: 50px;
-    }
-    
-    .stadium-map-container {
-        position: relative;
-        max-width: 95%;
-        left: 0;
-        margin-top: 0;
-        align-self: center;
-    }
+/* --- Hover Effects --- */
 
-    .stadium-map-image {
-        max-height: 400px;
-    }
+.action-button:hover {
+    filter: brightness(0.9);
+}
 
-    .ticket-categories-legend {
-        position: absolute;
-        top: 40px;
-        right: 20px;
-        width: 90px;
-        background-color: var(--primary-red);
-        border: none;
-    }
+.details-button:hover {
+    /* Slightly darker for hover effect */
+    background: rgba(100, 20, 50, 1.0);
 }

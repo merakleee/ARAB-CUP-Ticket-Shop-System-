@@ -1,85 +1,129 @@
-// src/dispo.jsx
-
 import React from 'react';
-import './dispo.css';
+import './dispo.css'; // Assuming you'll put the styles in a CSS file
 
-const STADIUM_MAP_IMAGE = 'https://res.cloudinary.com/drftumteo/image/upload/v1765407974/Screenshot_2025-12-10_230542_krbct7.png';
+// --- Constants ---
+// The provided image link to be used for all stadium visuals
+const STADIUM_IMAGE_URL = 'https://res.cloudinary.com/drftumteo/image/upload/v1765549406/Frame_128_h3qbll.png';
 
-const Dispo = ({
-    match,
-    setActivePage,
-    setIsMenuOpen,
-    currentUser,
-    setDarkMode,
-    darkMode,
-    setShowLoginModal,
-}) => {
+// --- Data Structure ---
+const ticketData = [
+  {
+    category: 'CATEGORIE 01',
+    description: 'COUPE ARABE - PHASE DE GROUPES - JOURNÉE 3 SUR 3 - GROUPE D',
+    stadium: 'LUSAIL STADIUM',
+    priceDA: 65000,
+    actionType: 'available',
+  },
+  {
+    category: 'CATEGORIE 02',
+    description: 'COUPE ARABE - PHASE DE GROUPES - JOURNÉE 3 SUR 3 - GROUPE D',
+    stadium: 'LUSAIL STADIUM',
+    priceDA: 62000,
+    actionType: 'available',
+  },
+  {
+    category: 'CATEGORIE 03',
+    description: 'COUPE ARABE - PHASE DE GROUPES - JOURNÉE 3 SUR 3 - GROUPE D',
+    stadium: 'LUSAIL STADIUM',
+    priceDA: 50000,
+    actionType: 'available',
+  },
+  {
+    category: 'VVIP',
+    description: 'COUPE ARABE - PHASE DE GROUPES - JOURNÉE 3 SUR 3 - GROUPE D',
+    stadium: 'LUSAIL STADIUM',
+    priceDA: 187500,
+    actionType: 'eligibility',
+  },
+  {
+    category: 'VIP',
+    description: 'COUPE ARABE - PHASE DE GROUPES - JOURNÉE 3 SUR 3 - GROUPE D',
+    stadium: 'LUSAIL STADIUM',
+    priceDA: 110000,
+    actionType: 'eligibility',
+  },
+];
 
-    const ticketCategories = [
-        { name: 'CAT03', color: '#ff0000', price: '700 DZA', availability: 'Disponible' },
-        { name: 'CAT02', color: '#ff8c00', price: '1200 DZA', availability: 'Disponible' },
-        { name: 'CAT01', color: '#ffff00', price: '1800 DZA', availability: 'Disponible' },
-        { name: 'VVIP', color: '#d3d3d3', price: '2500 DZA', availability: 'Disponible' },
-        { name: 'VIP', color: '#ffffff', price: '4000 DZA', availability: 'Disponible' },
-    ];
-
-    const currentMatch = match || {
-        team1: 'ALGERIA',
-        team2: 'IRAK',
-        stadium: 'Lusail Stadium',
-        date: 'MAR. 9 DÉCEMBRE 2025',
-        flagImage: 'https://res.cloudinary.com/drftumteo/image/upload/v1765407451/Frame_30_o9zln8.png'
-    };
-
-    const handleCategoryClick = (category) => {
-        console.log(`Navigating to category: ${category.name}`);
-    };
-
-    return (
-        <div className="dispo-page-wrapper">
-            
-            <div className="dispo-main">
-                
-                <div className="dispo-content-wrapper">
-                    
-                    <section className="dispo-left-panel">
-                        <div className="abstract-line-placeholder abstract-line-left-dispo"></div>
-                        <div className="abstract-line-placeholder abstract-line-right-dispo"></div>
-                    </section>
-
-                    <section className="dispo-right-panel">
-                        
-                        <div className="stadium-map-container">
-                            
-                            <img
-                                src={STADIUM_MAP_IMAGE}
-                                alt="Stadium Seating Map"
-                                className="stadium-map-image"
-                            />
-                            
-                            <div className="ticket-categories-legend">
-                                {ticketCategories.map((cat, index) => (
-                                    <button
-                                        key={index}
-                                        className="category-item-btn"
-                                        onClick={() => handleCategoryClick(cat)}
-                                    >
-                                        <div className="category-color" style={{ backgroundColor: cat.color }}></div>
-                                        <span className="category-name">{cat.name}</span>
-                                    </button>
-                                ))}
-                            </div>
-
-                            <button className="stadium-btn">
-                                <span className="stadium-pin">📍</span> {currentMatch.stadium}
-                            </button>
-                        </div>
-
-                    </section>
-                </div>
-            </div>
-        </div>
-    );
+// Helper function to format the price
+const formatPrice = (price) => {
+  return price.toLocaleString('fr-DZ') + 'DA'; // Formats as 123 456DA
 };
 
-export default Dispo;
+// --- Sub-Component for a Single Card Item ---
+const TicketCategoryCard = ({ category, description, stadium, priceDA, actionType }) => {
+  // Determine button text based on actionType
+  const actionButtonText =
+    actionType === 'available'
+      ? 'VOIR LES TICKETS DISPONIBLE'
+      : 'VERIFIER ELIGIBILITE';
+
+  // Placeholder function for button clicks
+  const handleActionClick = () => {
+    console.log(`Action clicked for ${category}: ${actionButtonText}`);
+  };
+
+  const handleDetailsClick = () => {
+    console.log(`Details clicked for ${category}`);
+  };
+
+  return (
+    <div className="ticket-card-item">
+      {/* The image/stadium visual */}
+      <div className="stadium-visual">
+        <img src={STADIUM_IMAGE_URL} alt={`${category} - ${stadium}`} className="stadium-image"/>
+      </div>
+
+      <div className="card-content">
+        <div className="text-info">
+          <h2 className="category-title">{category}</h2>
+          <p className="description">{description}</p>
+          <p className="stadium-name">{stadium}</p>
+        </div>
+
+        <div className="action-section">
+          {/* Price */}
+          <div className="price-container">
+            <span className="price-label">from</span>
+            <span className="price-value">{formatPrice(priceDA)}</span>
+          </div>
+
+          {/* Action Buttons: CORRECTED to use 'action-button' */}
+          <div className="button-group">
+            <button
+              className={`action-button ${actionType}`}
+              onClick={handleActionClick}
+            >
+              {actionButtonText}
+            </button>
+            <button
+              className="details-button"
+              onClick={handleDetailsClick}
+            >
+              PLUS DE DETAILS
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// --- Main Component ---
+const TicketCategoryList = () => {
+  return (
+    <div className="ticket-category-list">
+      {ticketData.map((data, index) => (
+        <TicketCategoryCard
+          key={index}
+          category={data.category}
+          description={data.description}
+          stadium={data.stadium}
+          priceDA={data.priceDA}
+          actionType={data.actionType}
+        />
+      ))}
+    </div>
+  );
+};
+
+export default TicketCategoryList;
