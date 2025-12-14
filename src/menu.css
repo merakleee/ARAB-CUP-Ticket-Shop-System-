@@ -118,17 +118,8 @@ body {
     padding: 20px 0;
     text-align: center;
     transition: flex-grow 0.5s ease-out, background-color 0.5s ease;
-}
 
-.menuColumn:hover {
-    flex-grow: 4;
-    background-color: #990033;
-}
 
-.homeColumn {
-    background-image:
-        linear-gradient(rgba(128, 0, 32, 0.5), rgba(128, 0, 32, 0.5)),
-        url('https://res.cloudinary.com/drftumteo/image/upload/v1765384648/ccf98bb1bc673439fbfde7b6744f3f76796b6a81_rmtgyn.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -136,6 +127,52 @@ body {
     overflow: hidden;
     position: relative;
 }
+
+.menuColumn:hover {
+    flex-grow: 4;
+}
+
+.homeColumn {
+    background-image:
+        linear-gradient(rgba(128, 0, 32, 0.5), rgba(128, 0, 32, 0.5)),
+        url('https://res.cloudinary.com/drftumteo/image/upload/v1765384648/ccf98bb1bc673439fbfde7b6744f3f76796b6a81_rmtgyn.png');
+}
+
+/* MATCHES Column */
+.matchesColumn {
+    background-image:
+        linear-gradient(rgba(128, 0, 32, 0.5), rgba(128, 0, 32, 0.5)),
+        url('https://res.cloudinary.com/drftumteo/image/upload/v1765742305/pexels-bohlemedia-1884574_l836vv.jpg');
+}
+
+/* PROFILE Column */
+.profileColumn {
+    background-image:
+        linear-gradient(rgba(128, 0, 32, 0.5), rgba(128, 0, 32, 0.5)),
+        url('https://res.cloudinary.com/drftumteo/image/upload/v1765742291/pexels-eslames1-31160100_d6xkwq.jpg');
+}
+
+/* FAQ Column */
+.faqColumn {
+    background-image:
+        linear-gradient(rgba(128, 0, 32, 0.5), rgba(128, 0, 32, 0.5)),
+        url('https://res.cloudinary.com/drftumteo/image/upload/v1765748453/photo_2025-12-14_21-40-30_lawsuo.jpg');
+}
+
+/* TICKETS Column */
+.ticketsColumn {
+    background-image:
+        linear-gradient(rgba(128, 0, 32, 0.5), rgba(128, 0, 32, 0.5)),
+        url('https://res.cloudinary.com/drftumteo/image/upload/v1765742643/Screenshot_2025-12-14_200351_psimis.png');
+}
+
+/* CALENDAR Column */
+.calendarColumn {
+    background-image:
+        linear-gradient(rgba(128, 0, 32, 0.5), rgba(128, 0, 32, 0.5)),
+        url('https://res.cloudinary.com/drftumteo/image/upload/v1765742670/pexels-thngocbich-636246_n47s1y.jpg');
+}
+
 
 /* MAIN MENU LINK (now also for button) */
 

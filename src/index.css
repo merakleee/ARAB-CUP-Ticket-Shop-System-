@@ -129,12 +129,17 @@ body {
 /* HERO (HOME PAGE) */
 
 .hero-section {
-  padding: 40px 48px 56px;
   display: flex;
-  flex-direction: row;
   gap: 24px;
   background-color: #8B1538;
   color: #ffffff;
+  padding: 80px 24px;
+  flex-direction: column;
+}
+
+.hero-inner {
+  max-width: 960px;
+  margin: 0 auto;
 }
 
 .match-highlight {
@@ -177,10 +182,13 @@ body {
 }
 
 .hero-title {
-  font-size: 1.8rem;
-  margin-bottom: 8px;
+  font-size: 2rem;
   font-weight: 700;
+  margin-bottom: 12px;
+  max-width: 680px;
+  line-height: 1.2;
 }
+
 
 .team-name {
   font-weight: 700;
@@ -190,14 +198,14 @@ body {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin: 8px 0 16px;
+  margin: 12px 0 18px;
 }
 
 .meta-chip {
-  padding: 0.25rem 0.6rem;
+  padding: 6px 14px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.1);
-  font-size: 0.75rem;
+  background: rgba(0, 0, 0, 0.18);
+  font-size: 0.8rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
@@ -210,9 +218,11 @@ body {
 
 .hero-cta-row {
   display: flex;
-  gap: 0.75rem;
-  margin-top: 1.5rem;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
 }
+
 
 /* HERO BACKGROUND PANEL */
 
@@ -916,11 +926,6 @@ body.dark-mode .matches-main {
     justify-content: flex-start;
   }
 
-  .hero-section {
-    padding: 24px 16px 32px;
-    flex-direction: column;
-  }
-
   .hero-background {
     min-height: 220px;
   }
@@ -936,4 +941,294 @@ body.dark-mode .matches-main {
   .matches-carousel-section {
     padding: 24px 16px 40px;
   }
+
+  .hero-section {
+    padding: 24px 16px 32px;
+  }
+
+  .hero-title {
+    font-size: 1.6rem;
+    max-width: 100%;
+  }
+
+  .hero-inner {
+    margin: 0;
+  }
+}
+
+.hero-background {
+  display: none;
+}
+
+/* FAQ PAGE */
+
+.faq-main {
+  min-height: 80vh;
+  padding: 60px 24px 80px;
+  background: #f9f9f9;
+  color: #111111;
+  background-color: #8B1538;
+}
+
+.faq-inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.faq-title {
+  text-align: center;
+  font-size: 2rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.faq-subtitle {
+  text-align: center;
+  font-size: 0.95rem;
+  color: #e9e9e9;
+  max-width: 520px;
+  margin: 0 auto 32px;
+}
+
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Single FAQ item */
+
+.faq-item {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 18px 20px;
+  border: 1px solid #e2e2e2;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+}
+
+.faq-question-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.faq-question {
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.faq-badge {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: #8B1538;
+  color: #ffffff;
+}
+
+.faq-toggle {
+  border: none;
+  background: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+  padding: 0;
+}
+
+.faq-answer {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #555555;
+}
+
+/* Optional: smaller text on mobile */
+
+@media (max-width: 768px) {
+  .faq-main {
+    padding: 40px 16px 60px;
+  }
+
+  .faq-title {
+    font-size: 1.6rem;
+  }
+
+  .faq-question {
+    font-size: 0.9rem;
+  }
+
+  .faq-answer {
+    font-size: 0.85rem;
+  }
+}
+
+/* CALENDAR PAGE */
+
+.calendar-main {
+  min-height: 80vh;
+  padding: 60px 24px 80px;
+  background: #f9f9f9;
+  color: #111111;
+  background-color: #8B1538;
+}
+
+.calendar-inner {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.calendar-title {
+  text-align: center;
+  font-size: 2rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.calendar-subtitle {
+  text-align: center;
+  font-size: 0.95rem;
+  color: #e9e9e9;
+  max-width: 520px;
+  margin: 0 auto 32px;
+}
+
+.calendar-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* Single row */
+
+.calendar-item {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 16px;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 14px 18px;
+  border: 1px solid #e2e2e2;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+}
+
+/* Date pill on the left */
+
+.calendar-date-block {
+  width: 60px;
+  height: 60px;
+  border-radius: 12px;
+  background: #8B1538;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.calendar-date-day {
+  font-size: 1.3rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.calendar-date-month {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+/* Middle text */
+
+.calendar-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.calendar-teams {
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.calendar-team-name {
+  text-transform: uppercase;
+}
+
+.calendar-vs {
+  margin: 0 4px;
+  letter-spacing: 0.12em;
+}
+
+.calendar-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  font-size: 0.8rem;
+  color: #555555;
+}
+
+/* Status chips */
+
+.calendar-status {
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.calendar-status-upcoming {
+  background: #14532d;
+  color: #bbf7d0;
+}
+
+.calendar-status-finished {
+  background: #1f2937;
+  color: #e5e7eb;
+}
+
+/* CTA button on the right */
+
+.calendar-cta {
+  border: none;
+  cursor: pointer;
+  background: #8B1538;
+  color: #ffffff;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  padding: 10px 18px;
+  border-radius: 0 20px 0 20px;
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+  .calendar-main {
+    padding: 40px 16px 60px;
+  }
+
+  .calendar-item {
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto auto;
+    align-items: flex-start;
+  }
+
+  .calendar-cta {
+    grid-column: 1 / -1;
+    justify-self: flex-end;
+    margin-top: 8px;
+  }
+}
+
+.match-tag-upcoming.is-active {
+  background-color: #ffffff;
+  color: #8B1538;
+  border-color: #ffffff;
 }

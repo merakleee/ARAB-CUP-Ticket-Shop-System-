@@ -1,10 +1,9 @@
-// src/menu.jsx
 import React from 'react';
 import './menu.css';
 import { IoIosClose } from 'react-icons/io';
 
 const Menu = ({ isOpen, onClose, onNavigate }) => {
-    if (!isOpen) return null; // controlled by parent
+    if (!isOpen) return null;
 
     const handleClick = (page) => {
         if (onNavigate) onNavigate(page);
@@ -44,7 +43,7 @@ const Menu = ({ isOpen, onClose, onNavigate }) => {
                 </div>
 
                 {/* Other top‑level items */}
-                <div className="menuColumn">
+                <div className="menuColumn matchesColumn">
                     <button
                         className="menuLink"
                         onClick={() => handleClick('matches')}
@@ -53,7 +52,7 @@ const Menu = ({ isOpen, onClose, onNavigate }) => {
                     </button>
                 </div>
 
-                <div className="menuColumn">
+                <div className="menuColumn profileColumn">
                     <button
                         className="menuLink"
                         onClick={() => handleClick('profile')}
@@ -62,7 +61,7 @@ const Menu = ({ isOpen, onClose, onNavigate }) => {
                     </button>
                 </div>
 
-                <div className="menuColumn">
+                <div className="menuColumn faqColumn">
                     <button
                         className="menuLink"
                         onClick={() => handleClick('faq')}
@@ -71,7 +70,7 @@ const Menu = ({ isOpen, onClose, onNavigate }) => {
                     </button>
                 </div>
 
-                <div className="menuColumn">
+                <div className="menuColumn ticketsColumn">
                     <button
                         className="menuLink"
                         onClick={() => handleClick('my-tickets')}
@@ -80,7 +79,7 @@ const Menu = ({ isOpen, onClose, onNavigate }) => {
                     </button>
                 </div>
 
-                <div className="menuColumn">
+                <div className="menuColumn calendarColumn">
                     <button
                         className="menuLink"
                         onClick={() => handleClick('calendar')}
